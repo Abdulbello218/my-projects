@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Joke App</title>
+        <style>
+            body {
+            background-color: azure;
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 20px;
+            }
+            h1 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 20px;
+            color: blue;
+
+            }
+            button {
+            color: blue;
+
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Random Joke Generator</h1>
+        <button onclick="getJoke()">Get a Joke</button>
+        <p id="result"></p>
+        <p id="counter">Jokes fetched: 0</p>
+
+        <script>
+            let count = 0;
+            function getJoke() {
+                fetch("https://v2.jokeapi.dev/joke/Any?type=single")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("result").innerHTML = data.joke;
+                    count += 1;
+                    document.getElementById("counter").innerHTML = "Jokes fetched: " + count;
+                })
+                .catch(error => {
+                    document.getElementById("result").innerHTML = "Could not load joke!";
+                })
+            }
+        </script>
+    </body>
+</html>
