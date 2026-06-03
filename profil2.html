@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> calculator </title>
+        <style>
+            body {
+            background-color: azure;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            font-size: 20px;
+            }
+
+            button {
+            color: blue;
+            border-radius: 16px;
+            padding: 10px 20px;
+            font-size: 20px;
+            }
+
+            h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            color: blue;
+            }
+
+
+            input {
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid gray;
+            font-size: 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1> tip calculator</h1>
+        <input type="text" id="calculator" placeholder="bill amount">
+        <input type="text" id="calc" placeholder="tip percentage">
+        <button onclick="greet()">calculate</button>
+        <p id="message"></p>
+
+        <script>
+            function greet(){
+            let calculate = document.getElementById("calculator").value
+            let calculate_2 = document.getElementById("calc").value
+            let result = Number(calculate) * (Number(calculate_2)/100)
+            let result_2 = Number(calculate) + result
+            document.getElementById("message").innerHTML= "your tip amount is " + result + " and your total amount is " + result_2; 
+            }
+        </script>
+
+    </body>
+</html>
